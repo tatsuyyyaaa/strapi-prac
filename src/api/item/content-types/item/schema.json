@@ -1,0 +1,53 @@
+{
+  "kind": "collectionType",
+  "collectionName": "items",
+  "info": {
+    "singularName": "item",
+    "pluralName": "items",
+    "displayName": "Item"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "description": {
+      "type": "text"
+    },
+    "serial_number": {
+      "type": "string"
+    },
+    "item_status": {
+      "type": "enumeration",
+      "enum": [
+        "New",
+        "Damaged"
+      ]
+    },
+    "quantity": {
+      "type": "integer",
+      "default": 0
+    },
+    "unit": {
+      "type": "string"
+    },
+    "purchase_date": {
+      "type": "date"
+    },
+    "category": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::category.category",
+      "inversedBy": "items"
+    },
+    "supplier": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::supplier.supplier",
+      "inversedBy": "items"
+    }
+  }
+}
